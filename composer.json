@@ -21,7 +21,7 @@
     }
   },
   "replace": {
-    "gh_validationdummy": "self.version"
+    "garvinhicking/gh_validationdummy": "self.version"
   },
   "extra": {
     "typo3/cms": {
