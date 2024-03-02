@@ -1,0 +1,2 @@
+@import 'EXT:gh_validationdummy/Configuration/TSConfig/Config/TCAdefaults.tsconfig'
+@import 'EXT:gh_validationdummy/Configuration/TSConfig/Config/Plugins.tsconfig'

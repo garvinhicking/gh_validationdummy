@@ -1,0 +1,36 @@
+# ==============================================
+# FE-Plugin configuration
+# ==============================================
+plugin.gh_validationdummy {
+    mvc.callDefaultActionIfActionCantBeResolved = 0
+
+    view {
+        templateRootPaths {
+            0 = EXT:gh_validationdummy/Resources/Private/Templates/
+        }
+
+        partialRootPaths {
+            0 = EXT:gh_validationdummy/Resources/Private/Partials/
+        }
+
+        layoutRootPaths {
+            0 = EXT:gh_validationdummy/Resources/Private/Layouts/
+        }
+    }
+}
+
+plugin.gh_validationdummy_Dto {
+    view {
+        templateRootPaths {
+            0 = EXT:gh_validationdummy/Resources/Private/Templates/DTO/
+        }
+    }
+}
+
+plugin.gh_validationdummy_Validation {
+    view {
+        templateRootPaths {
+            0 = EXT:gh_validationdummy/Resources/Private/Templates/Validation/
+        }
+    }
+}

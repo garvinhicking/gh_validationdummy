@@ -1,0 +1,43 @@
+<html
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <h2>Edit person {person.firstName} {person.lastName}</h2>
+
+    <f:form.validationResults>
+        <f:if condition="{validationResults.flattenedErrors}">
+            <ul class="errors">
+                <f:for each="{validationResults.flattenedErrors}" as="errors" key="propertyPath">
+                    <li>{propertyPath}
+                        <ul>
+                            <f:for each="{errors}" as="error">
+                                <li>{error.code}: {error}</li>
+                            </f:for>
+                        </ul>
+                    </li>
+                </f:for>
+            </ul>
+        </f:if>
+    </f:form.validationResults>
+
+    <f:form name="person" action="update" object="{person}" objectName="person">
+        <f:form.hidden property="referenceUid" />
+
+        <div>
+            First Name: <f:form.textfield property="firstName" />
+        </div>
+
+        <div>
+            Last Name: <f:form.textfield property="lastName" />
+        </div>
+
+        <f:form.submit value="Update" />
+    </f:form>
+
+    <p><f:link.action action="list">Back to list</f:link.action></p>
+</f:section>
+
+</html>
