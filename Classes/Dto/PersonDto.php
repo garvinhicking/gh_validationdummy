@@ -4,7 +4,7 @@ namespace GarvinHicking\ValidationDummy\Dto;
 
 use TYPO3\CMS\Extbase\Annotation\Validate;
 
-class PersonDto extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class PersonDto
 {
     protected string $firstName = '';
     protected string $lastName = '';
