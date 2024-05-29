@@ -174,6 +174,15 @@ return [
                 'eval' => 'trim',
             ]
         ],
+        'fal' => [
+            'exclude' => true,
+            'label' => 'File Reference',
+            'config' => [
+                'type' => 'file',
+                'maxitems' => 1,
+                'allowed' => 'common-image-types',
+            ],
+        ],
     ],
     'types' => [
         '0' => [
