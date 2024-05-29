@@ -20,6 +20,14 @@ $boot = function () {
         null,
         'gh_validationdummy'
     );
+
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+        'gh_validationdummy',
+        'Debug',
+        'Test: DEBUG ViewHelper',
+        null,
+        'gh_validationdummy'
+    );
 };
 
 $boot();

@@ -28,6 +28,18 @@ $boot = function () {
             \GarvinHicking\ValidationDummy\Controller\ValidationController::class => 'list, new, create, edit, update',
         ]
     );
+
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        'gh_validationdummy',
+        'Debug',
+        [
+            \GarvinHicking\ValidationDummy\Controller\DebugController::class => 'list',
+        ],
+        // non-cacheable actions
+        [
+            \GarvinHicking\ValidationDummy\Controller\DebugController::class => 'list',
+        ]
+    );
 };
 
 $boot();
