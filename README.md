@@ -12,7 +12,7 @@ In the frontend editing, that "special" field should never be touchable.
 
 If you simply omit the property in your `<f:form>` section of the frontend creation/editing part, the validation ("NotEmpty") still kicks in, and will prevent you from persisting or even inspecting any element, where "special" is not set.
 
-If you pass `@IgnoreValidation("person")` to the controller's `updateAction` or `createAction` you would completely disable any validation of the object (not good). Of course, you could validate the object within the controller action completely manually in that case.
+If you pass `@IgnoreValidation("person")` (respectively `#[IgnoreValidation(...)]`) to the controller's `updateAction` or `createAction` you would completely disable any validation of the object (not good). Of course, you could validate the object within the controller action completely manually in that case.
 
 If you would use `@Validate(...)` with a custom validation instead, this would always be executed on top of the domain model validation - so you could only add extra validation, and not bypass the existing one.
 

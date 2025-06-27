@@ -3,6 +3,7 @@ namespace GarvinHicking\ValidationDummy\Controller;
 
 use GarvinHicking\ValidationDummy\Domain\Model\Person;
 use GarvinHicking\ValidationDummy\Domain\Repository\PersonRepository;
+use GarvinHicking\ValidationDummy\Domain\Validator\PersonValidator;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Annotation\Validate;
@@ -31,13 +32,20 @@ class ValidationController extends ActionController
     }
 
     /**
-     * @todo: This here actually does not work. If you add "ignoreValidation",
-     *        this also bypasses the Validate(...) annotation, too.
-     *        If you leave out IgnoreValidation, the DomainModel Validation is
+     * NOTE:  If you add "ignoreValidation", this also bypasses the Validate(...)
+     *        annotation, too.
+     *        Only if you leave out IgnoreValidation, the DomainModel Validation is
      *        executed on top of the controller validation, so it cannot be bypassed.
+     *        This is an example to play around with, so you can try out variations.
+     *        In your implementation, use PHP Attributes if possible (not both)
      * @IgnoreValidation("person")
      * @Validate(param="person", validator="GarvinHicking\ValidationDummy\Domain\Validator\PersonValidator")
      */
+    #[IgnoreValidation(['argumentName' => 'person'])]
+    #[Validate([
+        'param' => 'person',
+        'validator' => PersonValidator::class,
+    ])]
     public function createAction(Person $person): ResponseInterface
     {
         $this->personRepository->add($person);
