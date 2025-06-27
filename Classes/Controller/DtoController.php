@@ -48,7 +48,8 @@ class DtoController extends ActionController
     //       with the missing "special" attribute, if empty.
     public function editAction(int $personUid): ResponseInterface
     {
-        // Note: You should add proper Access Controls here to decide which persons can be viewed!
+        // Note: You should add proper Access Controls here to decide if the current user
+        // (e.g. frontend user) is allowed to edit this record!
         $person = $this->personRepository->findByUid($personUid);
         if ($person) {
             $dto = new PersonDto();
@@ -66,7 +67,8 @@ class DtoController extends ActionController
 
     public function updateAction(PersonDto $person): ResponseInterface
     {
-        // Note: You should add proper Access Controls here to decide which persons can be updated!
+        // Note: You should add proper Access Controls here to decide if the current user
+        // (e.g. frontend user) is allowed to update this record!
         $persistenceObject = $this->personRepository->findByUid($person->getReferenceUid());
         if ($persistenceObject) {
             $persistenceObject->setFirstName($person->getFirstName());

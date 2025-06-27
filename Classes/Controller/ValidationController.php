@@ -65,6 +65,8 @@ class ValidationController extends ActionController
      */
     public function updateAction(Person $person): ResponseInterface
     {
+        // Note: You should add proper Access Controls here to decide if the current user
+        // (e.g. frontend user) is allowed to edit this record!
         $this->personRepository->update($person);
 
         return $this->htmlResponse();
